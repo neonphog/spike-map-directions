@@ -86,6 +86,8 @@ function renderMap() {
 function submitFrom(evt: SubmitEvent) {
   evt.preventDefault();
   disableAll(true);
+  routeInfo = null;
+  routeResult.innerText = "";
   fromResult.innerText = "searching for address...";
   geocode.geocode(fromSearch.value).then(
     (result) => {
@@ -104,6 +106,8 @@ function submitFrom(evt: SubmitEvent) {
 function submitTo(evt: SubmitEvent) {
   evt.preventDefault();
   disableAll(true);
+  routeInfo = null;
+  routeResult.innerText = "";
   toResult.innerText = "searching for address...";
   geocode.geocode(toSearch.value).then(
     (result) => {
