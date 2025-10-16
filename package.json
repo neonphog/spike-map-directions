@@ -1,0 +1,30 @@
+{
+  "name": "spike-map-directions",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@types/geojson": "^7946.0.16",
+    "@types/leaflet": "^1.9.21",
+    "esbuild": "^0.25.10",
+    "http-server": "^14.1.1",
+    "prettier": "^3.6.2",
+    "typedoc": "^0.28.14",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build:tsc": "tsc --build",
+    "build:bundle": "esbuild --bundle src/test.ts --minify --sourcemap --outfile=docs/test-bundle.js",
+    "build": "npm run build:tsc && npm run build:bundle",
+    "clean": "tsc --build --clean",
+    "doc": "typedoc src/index.ts --out api-docs",
+    "doc-open": "npm run doc && xdg-open api-docs/index.html",
+    "lint": "prettier . --write && prettier . --check",
+    "test": "npm run lint && npm run build",
+    "start": "npm run test && http-server -c-1 docs"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.1.0",
+    "geojson": "^0.5.0",
+    "leaflet": "^1.9.4"
+  }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      #ctrl {
+        padding: 20px;
+        z-index: 1000;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        bottom: 40px;
+        left: 60%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #666;
+        border-radius: 5px;
+        overflow: scroll;
+      }
+      #attrib {
+        padding: 20px;
+        z-index: 1000;
+        position: absolute;
+        bottom: 40px;
+        left: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #666;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="attrib">
+      <div>Many thanks to the projects used here.</div>
+      <ul>
+        <li><a href="https://nominatim.org/">Nomanatim</a></li>
+        <li><a href="https://project-osrm.org/">OSRM</a></li>
+        <li><a href="https://leafletjs.com/">Leaflet</a></li>
+        <li><a href="https://www.openstreetmap.org">Open Street Map</a></li>
+      </ul>
+    </div>
+    <div id="ctrl">
+      <form id="from" disabled>
+        <label for="from_search">from:</label>
+        <input type="text" id="from_search" name="from_search" disabled />
+        <input type="submit" id="from_check" value="check" disabled />
+        <pre id="from_result"></pre>
+      </form>
+      <form id="to" disabled>
+        <label for="to_search">to:</label>
+        <input type="text" id="to_search" name="to_search" disabled />
+        <input type="submit" id="to_check" value="check" disabled />
+        <pre id="to_result"></pre>
+      </form>
+      <form id="route" disabled>
+        <input type="submit" id="route_check" value="route" disabled />
+        <pre id="route_result"></pre>
+      </form>
+    </div>
+    <div id="map"></div>
+    <script src="test-bundle.js"></script>
+  </body>
+</html>
